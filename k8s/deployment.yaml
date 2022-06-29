@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: spring-petclinic
+  name: spring-petclinic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-petclinic
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic
+    spec:
+      containers:
+        - image: quay.io/spring-petclinic/spring-petclinic:latest
+          imagePullPolicy: Always
+          name: spring-petclinic
+          ports:
+            - containerPort: 9000
+              protocol: TCP
