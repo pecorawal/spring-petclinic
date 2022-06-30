@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: spring-petclinic
-  name: spring-petclinic
+    app: petclinic-test
+  name: petclinic-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-petclinic
+      app: petclinic-test
   template:
     metadata:
       labels:
-        app: spring-petclinic
+        app: petclinic-test
     spec:
       containers:
-        - image: quay.io/spring-petclinic/spring-petclinic:latest
+        - image: quay.io/petclinic-test/spring-petclinic:latest
           imagePullPolicy: Always
           name: spring-petclinic
           ports:
